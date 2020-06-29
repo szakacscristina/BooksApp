@@ -19,14 +19,21 @@ namespace BooksApp.Controllers
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Gets a list of all the reviews
+        /// </summary>
+        /// <returns>A list of all the reviews</returns>
         // GET: api/Reviews
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Review>>> GetReview()
         {
             return await _context.Reviews.ToListAsync();
         }
-
+        /// <summary>
+        /// Gets a specific review
+        /// </summary>
+        /// <param name="id">Used to return a specific review</param>
+        /// <returns>A specific review</returns>
         // GET: api/Reviews/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Review>> GetReview(long id)
@@ -40,7 +47,12 @@ namespace BooksApp.Controllers
 
             return review;
         }
-
+        /// <summary>
+        ///Updates a review
+        /// </summary>
+        /// <param name="id">Used for updating a specific review</param>
+        /// <param name="review"></param>
+        /// <returns>The specific updated review</returns>
         // PUT: api/Reviews/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -64,7 +76,11 @@ namespace BooksApp.Controllers
 
             return Ok(review);
         }
-
+        /// <summary>
+        /// Adds a new review
+        /// </summary>
+        /// <param name="review"></param>
+        /// <returns>The added review</returns>
         // POST: api/Reviews
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -80,7 +96,11 @@ namespace BooksApp.Controllers
 
             return CreatedAtAction("GetReview", new { id = review.Id }, review);
         }
-
+        /// <summary>
+        /// Deletes a review
+        /// </summary>
+        /// <param name="id">Used to delete a specific review</param>
+        /// <returns></returns>
         // DELETE: api/Reviews/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Review>> DeleteReview(long id)

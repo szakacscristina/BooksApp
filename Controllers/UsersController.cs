@@ -19,6 +19,10 @@ namespace BooksApp.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Gets a list of all users
+        /// </summary>
+        /// <returns>A list of all users</returns>
 
         // GET: api/Users
         [HttpGet]
@@ -26,7 +30,11 @@ namespace BooksApp.Controllers
         {
             return await _context.Users.ToListAsync();
         }
-
+        /// <summary>
+        /// Gets a specific user
+        /// </summary>
+        /// <param name="id">Used to return a specific user by id.</param>
+        /// <returns>A specific user.</returns>
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(long id)
@@ -40,7 +48,12 @@ namespace BooksApp.Controllers
 
             return user;
         }
-
+        /// <summary>
+        /// Uodates a user. 
+        /// </summary>
+        /// <param name="id">Updates a specific user.</param>
+        /// <param name="user"></param>
+        /// <returns>A list of updated users.</returns>
         // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -64,6 +77,11 @@ namespace BooksApp.Controllers
 
             return Ok(user);
         }
+        /// <summary>
+        /// Adds a new user. 
+        /// </summary>
+        /// <param name="user">Used to search for a user.</param>
+        /// <returns> A lst of users.</returns>
 
         // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -71,17 +89,22 @@ namespace BooksApp.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            //Validare an 
-            // if (user.FirstName ! )
+            //Validare FirstName
+           // if (user.Password.Contains("@"))
+                  
             // {
-            // return BadRequest("First Name requires letters instead of numbers.");
-            // }
+              //  return BadRequest("First Name does not accept special characters.");
+           // }
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
-
+        /// <summary>
+        /// Deletes a specific user. 
+        /// </summary>
+        /// <param name="id"> Is used to detele a specific user.</param>
+        /// <returns></returns>
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(long id)

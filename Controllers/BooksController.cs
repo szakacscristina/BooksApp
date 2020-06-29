@@ -19,6 +19,10 @@ namespace BooksApp.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Gets a list of all the books
+        /// </summary>
+        /// <returns>A list of all the books</returns>
 
         // GET: api/Books
         [HttpGet]
@@ -26,7 +30,11 @@ namespace BooksApp.Controllers
         {
             return await _context.Books.ToListAsync();
         }
-
+        /// <summary>
+        /// Gets a specific book
+        /// </summary>
+        /// <param name="id">Used to get a specific book</param>
+        /// <returns>A specific book</returns>
         // GET: api/Books/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(long id)
@@ -40,6 +48,12 @@ namespace BooksApp.Controllers
 
             return book;
         }
+        /// <summary>
+        /// Updates a specific book
+        /// </summary>
+        /// <param name="id">Used to update a specific book</param>
+        /// <param name="book"></param>
+        /// <returns>An updated book</returns>
 
         // PUT: api/Books/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -64,7 +78,11 @@ namespace BooksApp.Controllers
 
             return Ok(book);
         }
-
+        /// <summary>
+        /// Adds a new book
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns>The new added book</returns>
         // POST: api/Books
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -83,7 +101,11 @@ namespace BooksApp.Controllers
 
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
-
+        /// <summary>
+        /// Deletes a book
+        /// </summary>
+        /// <param name="id">Used to delete a specific book</param>
+        /// <returns></returns>
         // DELETE: api/Books/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Book>> DeleteBook(long id)
