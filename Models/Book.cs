@@ -19,6 +19,8 @@ namespace BooksApp.Models
         public string Author { get; set; }
 
         public BookGenre BookGenre { get; set; }
+
+        public List<Review> Reviews { get; set; }
     }
 }
 
