@@ -46,16 +46,19 @@ namespace BooksApp.Controllers
         /// <returns>A specific book</returns>
         // GET: api/Books/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(long id)
+        public async Task<ActionResult<BookDetails>> GetBook(long id)
         {
-            var book = await _context.Books.FindAsync(id);
+            var book = await _context
+                .Books
+                .Include(f => f.Reviews)
+                .FirstOrDefaultAsync(f => f.Id == id);
 
             if (book == null)
             {
                 return NotFound();
             }
 
-            return book;
+            return BookDetails.FromBook(book);
         }
         /// <summary>
         /// Updates a specific book

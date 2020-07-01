@@ -25,7 +25,9 @@
             <td>{{ book.bookGenre }}</td>
             <td>{{ book.numberOfReviews }}</td>
             <td>
-                <a>Details</a>
+                <a class="btn btn-primary" [routerLink]="['/fetch-data', book.id]" routerLinkActive="active">Details</a> |
+                <a class="btn btn-danger" (click)="delete(book.id)">Delete</a>
+
             </td>
         </tr>
     </tbody>

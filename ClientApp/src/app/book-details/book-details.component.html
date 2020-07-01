@@ -1,1 +1,50 @@
 <p>book-details works!</p>
+
+
+<p *ngIf="!book"><em>Loading...</em></p>
+
+<a class="btn btn-primary" [routerLink]="['/fetch-data']" routerLinkActive="active">Back</a>
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="book">
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <td>{{ book.title }}</td>
+            </tr>
+        <tr>
+            <th>YearOfRelease</th>
+            <td>{{ book.yearOfRelease }}</td>
+            </tr>
+        <tr>
+            <th>Publisher</th>
+            <td>{{ book.publisher }}</td>
+            </tr>
+        <tr>
+            <th>Author</th>
+            <td>{{ book.author }}</td>
+    </tr>
+        <tr>
+            <th>BookGenre</th>
+            <td>{{ book.bookGenre }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2>Reviews</h2>
+<table *ngIf="book">
+    <thead>
+        <th>Text</th>
+        <th>MovieId</th>
+    </thead>
+
+<tr *ngFor="let review of book.reviews">
+    <td>
+       {{ review.text}}
+    </td>
+    <td>
+       {{ review.bookId}}
+    </td>
+</tr>
+</table>

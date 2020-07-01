@@ -10,7 +10,8 @@ namespace BooksApp.Models
         public long Id { get; set; }
         public string Text { get; set; }
         public int BookId { get; set; }
-        public Book Book { get; set; }
+
+       // public Book Book { get; set; }
 
 
     }

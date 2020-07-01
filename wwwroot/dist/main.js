@@ -13,6 +13,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/book-details/book-details.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/book-details/book-details.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>book-details works!</p>\n\n\n<p *ngIf=\"!book\"><em>Loading...</em></p>\n\n<a class=\"btn btn-primary\" [routerLink]=\"['/fetch-data']\" routerLinkActive=\"active\">Back</a>\n\n\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"book\">\n    <tbody>\n        <tr>\n            <th>Title</th>\n            <td>{{ book.title }}</td>\n            </tr>\n        <tr>\n            <th>YearOfRelease</th>\n            <td>{{ book.yearOfRelease }}</td>\n            </tr>\n        <tr>\n            <th>Publisher</th>\n            <td>{{ book.publisher }}</td>\n            </tr>\n        <tr>\n            <th>Author</th>\n            <td>{{ book.author }}</td>\n    </tr>\n        <tr>\n            <th>BookGenre</th>\n            <td>{{ book.bookGenre }}</td>\n        </tr>\n    </tbody>\n</table>\n\n\n<h2>Reviews</h2>\n<table *ngIf=\"book\">\n    <thead>\n        <th>Text</th>\n        <th>MovieId</th>\n    </thead>\n\n<tr *ngFor=\"let review of book.reviews\">\n    <td>\n       {{ review.text}}\n    </td>\n    <td>\n       {{ review.bookId}}\n    </td>\n</tr>\n</table>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/counter/counter.component.html":
 /*!**************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/counter/counter.component.html ***!
@@ -35,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Books</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!books\"><em>Loading...</em></p>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"books\">\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>YearOfRelease</th>\r\n            <th>Publisher</th>\r\n            <th>Author</th>\r\n            <th>BookGenre</th>\r\n            <th>Reviews</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let book of books\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.yearOfRelease }}</td>\r\n            <td>{{ book.publisher }}</td>\r\n            <td>{{ book.author }}</td>\r\n            <td>{{ book.bookGenre }}</td>\r\n            <td>{{ book.numberOfReviews }}</td>\r\n            <td>\r\n                <a>Details</a>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Books</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!books\"><em>Loading...</em></p>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"books\">\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>YearOfRelease</th>\r\n            <th>Publisher</th>\r\n            <th>Author</th>\r\n            <th>BookGenre</th>\r\n            <th>Reviews</th>\r\n            <th>Book Details</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let book of books\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.yearOfRelease }}</td>\r\n            <td>{{ book.publisher }}</td>\r\n            <td>{{ book.author }}</td>\r\n            <td>{{ book.bookGenre }}</td>\r\n            <td>{{ book.numberOfReviews }}</td>\r\n            <td>\r\n                <a class=\"btn btn-primary\" [routerLink]=\"['/fetch-data', book.id]\" routerLinkActive=\"active\">Details</a> |\r\n                <a class=\"btn btn-danger\" (click)=\"delete(book.id)\">Delete</a>\r\n\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -145,6 +158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./counter/counter.component */ "./src/app/counter/counter.component.ts");
 /* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
+/* harmony import */ var _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./book-details/book-details.component */ "./src/app/book-details/book-details.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -164,6 +178,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -173,7 +188,8 @@ AppModule = __decorate([
             _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_6__["NavMenuComponent"],
             _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
             _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"],
-            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"]
+            _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"],
+            _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_10__["BookDetailsComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -183,12 +199,94 @@ AppModule = __decorate([
                 { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
                 { path: 'counter', component: _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"] },
                 { path: 'fetch-data', component: _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"] },
+                { path: 'fetch-data/:bookId', component: _book_details_book_details_component__WEBPACK_IMPORTED_MODULE_10__["BookDetailsComponent"] },
             ])
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/book-details/book-details.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/book-details/book-details.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jvb2stZGV0YWlscy9ib29rLWRldGFpbHMuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/book-details/book-details.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/book-details/book-details.component.ts ***!
+  \********************************************************/
+/*! exports provided: BookDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookDetailsComponent", function() { return BookDetailsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+let BookDetailsComponent = class BookDetailsComponent {
+    constructor(http, baseUrl, route) {
+        this.http = http;
+        this.baseUrl = baseUrl;
+        this.route = route;
+    }
+    loadBook(bookId) {
+        this.http.get(this.baseUrl + 'api/Books/' + bookId).subscribe(result => {
+            this.book = result;
+            console.log(this.book);
+        }, error => console.error(error));
+    }
+    ngOnInit() {
+        this.route.paramMap.subscribe(params => {
+            this.loadBook(params.get('bookId'));
+        });
+    }
+};
+BookDetailsComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: ['BASE_URL',] }] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+];
+BookDetailsComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-book-details',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./book-details.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/book-details/book-details.component.html")).default,
+        styles: [__importDefault(__webpack_require__(/*! ./book-details.component.css */ "./src/app/book-details/book-details.component.css")).default]
+    }),
+    __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])('BASE_URL')),
+    __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], String, _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+], BookDetailsComponent);
 
 
 
@@ -265,10 +363,28 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 let FetchDataComponent = class FetchDataComponent {
     constructor(http, baseUrl) {
+        this.http = http;
+        this.baseUrl = baseUrl;
         http.get(baseUrl + 'api/Books').subscribe(result => {
             this.books = result;
             console.log(this.books);
         }, error => console.error(error));
+    }
+    loadBooks() {
+        this.http.get(this.baseUrl + 'api/Books').subscribe(result => {
+            this.books = result;
+            console.log(this.books);
+        }, error => console.error(error));
+    }
+    ;
+    delete(bookId) {
+        if (confirm('Are you sure you want to delete the book with id ' + bookId + '?')) {
+            this.http.delete(this.baseUrl + 'api/Books/' + bookId)
+                .subscribe(result => {
+                alert('Book successfully deleted!');
+                this.loadBooks();
+            }, error => alert('Cannot delete book - maybe it has reviews?'));
+        }
     }
 };
 FetchDataComponent.ctorParameters = () => [
