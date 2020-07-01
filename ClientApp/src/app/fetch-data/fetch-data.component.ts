@@ -6,14 +6,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
 
     public books: Book[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  constructor( private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
 
       http.get<Book[]>(baseUrl + 'api/Books').subscribe(result => {
           this.books = result;
@@ -21,13 +17,28 @@ export class FetchDataComponent {
           console.log(this.books)
       }, error => console.error(error));
   }
-}
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+
+loadBooks() {
+    this.http.get<Book[]>(this.baseUrl + 'api/Books').subscribe(result => {
+        this.books = result;
+        console.log(this.books);
+    }, error => console.error(error))
+};
+
+delete (bookId: string) {
+    if (confirm('Are you sure you want to delete the book with id ' + bookId + '?')) {
+        this.http.delete(this.baseUrl + 'api/Books/' + bookId)
+            .subscribe
+            (
+                result => {
+                    alert('Book successfully deleted!');
+                    this.loadBooks();
+                },
+                error => alert('Cannot delete book - maybe it has reviews?')
+            )
+    }
+}
 }
 
  

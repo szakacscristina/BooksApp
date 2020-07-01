@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BooksApp.Models;
+using BooksApp.ViewModels;
+using BooksApp.Migrations;
 
 namespace BooksApp.Controllers
 {
@@ -26,9 +28,16 @@ namespace BooksApp.Controllers
 
         // GET: api/Books
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<BookWithNumberOfReviews>>> GetBooks()
         {
-            return await _context.Books.ToListAsync();
+            IQueryable<Book> result = _context.Books;
+            var resultList = await result 
+                 .Include(f => f.Reviews)
+                 .Select(f => BookWithNumberOfReviews.FromBook(f))
+                 .ToListAsync();
+
+
+            return resultList;      
         }
         /// <summary>
         /// Gets a specific book

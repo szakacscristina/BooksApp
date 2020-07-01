@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Weather forecast</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!forecasts\"><em>Loading...</em></p>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"forecasts\">\r\n    <thead>\r\n        <tr>\r\n            <th>Date</th>\r\n            <th>Temp. (C)</th>\r\n            <th>Temp. (F)</th>\r\n            <th>Summary</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let forecast of forecasts\">\r\n            <td>{{ forecast.date }}</td>\r\n            <td>{{ forecast.temperatureC }}</td>\r\n            <td>{{ forecast.temperatureF }}</td>\r\n            <td>{{ forecast.summary }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"books\">\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>YearOfRelease</th>\r\n            <th>Publisher</th>\r\n            <th>Author</th>\r\n            <th>BookGenre</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let book of books\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.yearOfRelease }}</td>\r\n            <td>{{ book.publisher }}</td>\r\n            <td>{{ book.author }}</td>\r\n            <td>{{ book.bookGenre }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 id=\"tableLabel\">Books</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!books\"><em>Loading...</em></p>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"books\">\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>YearOfRelease</th>\r\n            <th>Publisher</th>\r\n            <th>Author</th>\r\n            <th>BookGenre</th>\r\n            <th>Reviews</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let book of books\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.yearOfRelease }}</td>\r\n            <td>{{ book.publisher }}</td>\r\n            <td>{{ book.author }}</td>\r\n            <td>{{ book.bookGenre }}</td>\r\n            <td>{{ book.numberOfReviews }}</td>\r\n            <td>\r\n                <a>Details</a>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -265,9 +265,6 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 let FetchDataComponent = class FetchDataComponent {
     constructor(http, baseUrl) {
-        http.get(baseUrl + 'weatherforecast').subscribe(result => {
-            this.forecasts = result;
-        }, error => console.error(error));
         http.get(baseUrl + 'api/Books').subscribe(result => {
             this.books = result;
             console.log(this.books);

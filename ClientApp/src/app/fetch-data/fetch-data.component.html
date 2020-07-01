@@ -1,27 +1,8 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">Books</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+<p *ngIf="!books"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="books">
     <thead>
@@ -31,6 +12,8 @@
             <th>Publisher</th>
             <th>Author</th>
             <th>BookGenre</th>
+            <th>Reviews</th>
+            <th>Book Details</th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +23,10 @@
             <td>{{ book.publisher }}</td>
             <td>{{ book.author }}</td>
             <td>{{ book.bookGenre }}</td>
+            <td>{{ book.numberOfReviews }}</td>
+            <td>
+                <a>Details</a>
+            </td>
         </tr>
     </tbody>
 </table>
