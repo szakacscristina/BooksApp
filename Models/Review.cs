@@ -11,6 +11,8 @@ namespace BooksApp.Models
         public string Text { get; set; }
         public int BookId { get; set; }
 
+        public User AddedBy { get; set; }
+
        // public Book Book { get; set; }
 
 

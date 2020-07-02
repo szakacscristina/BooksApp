@@ -20,6 +20,8 @@ namespace BooksApp.Models
 
         public BookGenre BookGenre { get; set; }
 
+        public User AddedBy { get; set; }
+
         public List<Review> Reviews { get; set; }
     }
 }
