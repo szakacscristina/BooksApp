@@ -5,6 +5,7 @@ export class Book {
     yearOfRelease: number;
     author: string;
     bookGenre: BookGenre
+    publisher: any;
     }
 
 

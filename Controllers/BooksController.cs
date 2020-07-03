@@ -30,6 +30,10 @@ namespace BooksApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookWithNumberOfReviews>>> GetBooks()
         {
+
+
+            var identity = User.Identity;
+
             IQueryable<Book> result = _context.Books;
             var resultList = await result 
                  .Include(f => f.Reviews)

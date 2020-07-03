@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>books-edit works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>\r\n    Add/Edit a book \r\n</p>\r\n\r\n<mat-card class=\"example-card\">\r\n    <form *ngIf=\"formGroup\" [formGroup]=\"formGroup\">\r\n        <div class=\"example-container\">\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Title\" formControlName=\"title\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('title').touched && formGroup.get('title').errors && formGroup.get('title').errors.required\">\r\n                    Title required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"YearOfRelease\" formControlName=\"yearOfRelease\" type=\"number\">\r\n                <mat-error *ngIf=\"formGroup.get('yearOfRelease').touched && formGroup.get('yearOfRelease').errors && formGroup.get('yearOfRelease').errors.required\">\r\n                    Year of release required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Publisher\" formControlName=\"publisher\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('publisher').touched && formGroup.get('publisher').errors && formGroup.get('publisher').errors.required\">\r\n                    Publisher required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Author\" formControlName=\"author\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('author').touched && formGroup.get('author').errors && formGroup.get('author').errors.required\">\r\n                    Author required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Book genre\" formControlName=\"bookGenre\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('bookGenre').touched && formGroup.get('bookGenre').errors && formGroup.get('bookGenre').errors.required\">\r\n                    Book genre required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n        <div class=\"example-button-row\">\r\n            <button mat-raised-button color=\"primary\" (click)=\"save()\">Save</button>\r\n            <button mat-raised-button color=\"primary\" [routerLink]='routerLink'>Cancel</button>\r\n        </div>\r\n    </form>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>books-list works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Books</h1>\r\n\r\n<p>These are all the books!</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n\r\n<table mat-table [dataSource]=\"books?.items\" class=\"mat-elevation-z8\" *ngIf=\"books\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Title </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.title}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Year of release </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"publisher\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Publisher </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.publisher}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Duration Column -->\r\n    <ng-container matColumnDef=\"author\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Author </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.author}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Year Column -->\r\n    <ng-container matColumnDef=\"bookGenre\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Book Genre</th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.bookGenre}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Comments Column -->\r\n    <ng-container matColumnDef=\"numberOfReviews\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> No. of reviews </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.reviews}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Action Column -->\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let movie\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', book.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteBook(book)\">delete</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Details\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"detailsBook(book)\">details</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n<mat-progress-bar mode=\"indeterminate\" *ngIf=\"!books\"></mat-progress-bar>\r\n");
 
 /***/ }),
 
@@ -63,6 +63,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BooksEditComponent", function() { return BooksEditComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _books_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../books.service */ "./src/app/books/books.service.ts");
+/* harmony import */ var _books_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../books.models */ "./src/app/books/books.models.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -76,18 +80,78 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+
+
+
 let BooksEditComponent = class BooksEditComponent {
-    constructor() { }
+    constructor(router, route, booksService, formBuilder) {
+        this.router = router;
+        this.route = route;
+        this.booksService = booksService;
+        this.formBuilder = formBuilder;
+        this.routerLink = '../list';
+        this.isEdit = false;
+    }
     ngOnInit() {
+        this.bookID = parseInt(this.route.snapshot.params['id']);
+        if (this.bookID) {
+            this.routerLink = '../../list';
+            this.booksService.getBook(this.bookID).subscribe(res => {
+                this.initForm(res);
+                this.isEdit = true;
+            });
+        }
+        else {
+            this.initForm({});
+        }
+    }
+    save() {
+        Object.keys(this.formGroup.controls).forEach(control => {
+            this.formGroup.get(control).markAsTouched();
+        });
+        if (this.formGroup.valid) {
+            let book = this.formGroup.value;
+            book.bookGenre = _books_models__WEBPACK_IMPORTED_MODULE_4__["BookGenre"].Romance;
+            if (this.isEdit) {
+                book.id = this.bookID;
+                this.booksService.modifyBook(book).subscribe(res => {
+                    this.router.navigate(['/books']);
+                });
+            }
+            else {
+                this.booksService.saveBook(book).subscribe(res => {
+                    this.router.navigate(['/books']);
+                });
+            }
+        }
+    }
+    initForm(book) {
+        this.formGroup = this.formBuilder.group({
+            title: [book.title, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            yearOfRelease: [book.yearOfRelease, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            publisher: [book.publisher, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            author: [book.author, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            bookGenre: [book.bookGenre, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+        });
     }
 };
+BooksEditComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _books_service__WEBPACK_IMPORTED_MODULE_3__["BooksService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] }
+];
 BooksEditComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-books-edit',
         template: __importDefault(__webpack_require__(/*! raw-loader!./books-edit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/books/books-edit/books-edit.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./books-edit.component.css */ "./src/app/books/books-edit/books-edit.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _books_service__WEBPACK_IMPORTED_MODULE_3__["BooksService"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
 ], BooksEditComponent);
 
 
@@ -103,7 +167,7 @@ BooksEditComponent = __decorate([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jvb2tzL2Jvb2tzLWxpc3QvYm9va3MtbGlzdC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\ntable {\r\n    width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n    font-size: 14px;\r\n    width: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYm9va3MvYm9va3MtbGlzdC9ib29rcy1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksZUFBZTtJQUNmLFdBQVc7QUFDZiIsImZpbGUiOiJzcmMvYXBwL2Jvb2tzL2Jvb2tzLWxpc3QvYm9va3MtbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbnRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -118,6 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BooksListComponent", function() { return BooksListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _books_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../books.service */ "./src/app/books/books.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,18 +196,42 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
+
+//import { PaginatedMovies } from '../paginatedMovies.models';
+//import { PageEvent } from '@angular/material/paginator';
 let BooksListComponent = class BooksListComponent {
-    constructor() { }
+    //public dataSource;
+    //public isloading = false;
+    // public movies: PaginatedMovies;
+    // public pageEvent: PageEvent;
+    constructor(booksService) {
+        this.booksService = booksService;
+        this.displayedColumns = ['title', 'yearOfRelease', 'publisher', 'author', 'bookGenre', 'numberOfReviews', 'action'];
+    }
     ngOnInit() {
+        this.loadBooks();
+    }
+    loadBooks() {
+        this.booksService.listBooks().subscribe(res => {
+            this.books = res;
+        });
+    }
+    deleteBook(book) {
+        this.booksService.deleteBook(book.id).subscribe(x => {
+            this.loadBooks();
+        });
     }
 };
+BooksListComponent.ctorParameters = () => [
+    { type: _books_service__WEBPACK_IMPORTED_MODULE_1__["BooksService"] }
+];
 BooksListComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-books-list',
         template: __importDefault(__webpack_require__(/*! raw-loader!./books-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/books/books-list/books-list.component.html")).default,
         styles: [__importDefault(__webpack_require__(/*! ./books-list.component.css */ "./src/app/books/books-list/books-list.component.css")).default]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_books_service__WEBPACK_IMPORTED_MODULE_1__["BooksService"]])
 ], BooksListComponent);
 
 
@@ -258,6 +347,34 @@ BooksComponent = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/books/books.models.ts":
+/*!***************************************!*\
+  !*** ./src/app/books/books.models.ts ***!
+  \***************************************/
+/*! exports provided: Book, BookGenre */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Book", function() { return Book; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookGenre", function() { return BookGenre; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+class Book {
+}
+var BookGenre;
+(function (BookGenre) {
+    BookGenre[BookGenre["Romance"] = 0] = "Romance";
+    BookGenre[BookGenre["Fantasy"] = 1] = "Fantasy";
+    BookGenre[BookGenre["Science"] = 2] = "Science";
+    BookGenre[BookGenre["Mistery"] = 3] = "Mistery";
+    BookGenre[BookGenre["Action"] = 4] = "Action";
+})(BookGenre || (BookGenre = {}));
+
+
+/***/ }),
+
 /***/ "./src/app/books/books.module.ts":
 /*!***************************************!*\
   !*** ./src/app/books/books.module.ts ***!
@@ -344,6 +461,9 @@ let BooksService = class BooksService {
     constructor(http, applicationService) {
         this.http = http;
         this.applicationService = applicationService;
+    }
+    listBooks() {
+        throw new Error("Method not implemented.");
     }
     getBook(id) {
         return this.http.get(`${this.applicationService.baseUrl}api/Books/${id}`);

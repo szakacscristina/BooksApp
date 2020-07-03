@@ -8,6 +8,9 @@ import { PageEvent } from '@angular/material/paginator';
 
 @Injectable()
 export class BooksService {
+    listBooks() {
+        throw new Error("Method not implemented.");
+    }
     filter: any;
 
     constructor(
