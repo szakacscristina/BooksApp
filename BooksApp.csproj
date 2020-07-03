@@ -14,8 +14,16 @@
 	  <None Remove="ClientApp\node_modules\**" />
 	  <TypeScriptCompile Remove="ClientApp\node_modules\**" />
 	</ItemGroup>
+	<ItemGroup>
+	  <TypeScriptCompile Remove="ClientApp\src\app\shared\angular-material.module.ts" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="ClientApp\src\app\shared\angular-material.module.ts" />
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
@@ -30,6 +38,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 

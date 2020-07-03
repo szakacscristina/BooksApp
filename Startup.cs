@@ -18,6 +18,11 @@ using FluentValidation;
 using System.Reflection;
 using Microsoft.OpenApi.Models;
 using System.IO;
+using BooksApp.Helpers;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
 
 namespace BooksApp
 {
@@ -33,6 +38,24 @@ namespace BooksApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                 .AddJwtBearer(options =>
+                 {
+                     options.TokenValidationParameters = new TokenValidationParameters
+                     {
+                         ValidateIssuer = true,
+                         ValidateAudience = true,
+                         ValidateLifetime = true,
+                         ValidateIssuerSigningKey = true,
+                         ValidIssuer = Configuration.GetValue<string>("Authentication:Issuer"),
+                         ValidAudience = Configuration.GetValue<string>("Authentication:Issuer"),
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Authentication:Secret"))),
+                         ClockSkew = TimeSpan.Zero
+                     };
+                 });
+
+            // configure DI for application services
+
             services.AddControllers()
                .AddJsonOptions(options =>
                {
@@ -45,31 +68,42 @@ namespace BooksApp
             services.AddDbContext<BooksDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("BooksDbConnectionString")));
 
+            services
+          .AddMvc(options =>
+          { 
+
+              options.EnableEndpointRouting = false;
+          });
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+               .AddDefaultTokenProviders()
+               .AddEntityFrameworkStores<BooksDbContext>();
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
-           {
-               c.SwaggerDoc("v1", new OpenApiInfo
-               {
-                   Version = "v1",
-                   Title = "My Books API",
-                   Description = "A simple example ASP.NET Core Web Books API",
-                   TermsOfService = new Uri("https://example.com/terms"),
-                   Contact = new OpenApiContact
-                   {
-                       Name = "Cristina Szakacs",
-                       Email = "szakacscristina94@yahoo.com",
-                       Url = new Uri("https://twitter.com/spboyer"),
-                   },
-                   License = new OpenApiLicense
-                   {
-                       Name = "Use under LICX",
-                       Url = new Uri("https://example.com/license"),
-                   }
-               });
-               var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-               var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-               c.IncludeXmlComments(xmlPath);
-           });
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "My Books API",
+                    Description = "A simple example ASP.NET Core Web Books API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Cristina Szakacs",
+                        Email = "szakacscristina94@yahoo.com",
+                        Url = new Uri("https://twitter.com/spboyer"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
             services.AddSpaStaticFiles(configuration =>
             {
@@ -78,7 +112,7 @@ namespace BooksApp
 
         }
 
-       
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwagger();
@@ -92,16 +126,23 @@ namespace BooksApp
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-
             app.UseSpaStaticFiles();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

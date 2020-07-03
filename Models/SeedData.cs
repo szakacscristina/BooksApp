@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FlowersApp.Helpers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace BooksApp.Models
         {
             using (var context = new BooksDbContext(serviceProvider.GetRequiredService<DbContextOptions<BooksDbContext>>()))
             {
+
                 // Look for any books.
                 if (context.Books.Any())
                 {
