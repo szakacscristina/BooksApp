@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-header>\r\n        <mat-card-title>Log in</mat-card-title>\r\n    </mat-card-header>\r\n\r\n    <form class=\"example-form\">\r\n        <mat-card-content>\r\n            <mat-form-field class=\"example-full-width\">\r\n                <input type=\"email\" matInput placeholder=\"Email\" name=\"email\" [(ngModel)]=\"loginModel.email\">\r\n            </mat-form-field>\r\n\r\n            <mat-form-field class=\"example-full-width\">\r\n                <input type=\"password\" matInput placeholder=\"Password\" name=\"password\" [(ngModel)]=\"loginModel.password\">\r\n            </mat-form-field>\r\n        </mat-card-content>\r\n        <button mat-stroked-button color=\"accent\" class=\"btn-block\" (click)=\"loginUser()\">Log in</button>\r\n    </form>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-header>\r\n        <mat-card-title>Log in</mat-card-title>\r\n    </mat-card-header>\r\n\r\n\r\n\r\n    <form class=\"example-form\">\r\n        <mat-card-content>\r\n            <mat-form-field class=\"example-full-width\">\r\n                <input type=\"email\" matInput placeholder=\"Email\" name=\"email\" [(ngModel)]=\"loginModel.email\">\r\n            </mat-form-field>\r\n\r\n            <mat-form-field class=\"example-full-width\">\r\n                <input type=\"password\" matInput placeholder=\"Password\" name=\"password\" [(ngModel)]=\"loginModel.password\">\r\n            </mat-form-field>\r\n        </mat-card-content>\r\n        <button mat-stroked-button color=\"accent\" class=\"btn-block\" (click)=\"loginUser()\">Log in</button>\r\n    </form>\r\n</mat-card>\r\n\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -232,7 +232,7 @@ const routes = [
     { path: 'register', component: _registration_registration_component__WEBPACK_IMPORTED_MODULE_15__["RegistrationComponent"] },
     { path: 'books', loadChildren: './books/books.module#BooksModule' },
     // { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsModule' },
-    { path: 'fetch-data/:bookId', loadChildren: './books/books.module#BooksModule' },
+    //{ path: 'fetch-data/:bookId', loadChildren: './books/books.module#BooksModule' },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"], pathMatch: 'full' },
     { path: 'counter', component: _counter_counter_component__WEBPACK_IMPORTED_MODULE_10__["CounterComponent"] },
     { path: 'fetch-data', component: _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_11__["FetchDataComponent"] },
@@ -919,7 +919,7 @@ let LoginComponent = class LoginComponent {
     }
     loginUser() {
         this.securityService.login(this.loginModel).subscribe(token => {
-            this.router.navigate(['/fetch-data']);
+            this.router.navigate(['/books/list']);
         });
     }
 };

@@ -24,7 +24,7 @@ const routes: Routes = [
 
    // { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsModule' },
 
-    { path: 'fetch-data/:bookId', loadChildren: './books/books.module#BooksModule' },
+    //{ path: 'fetch-data/:bookId', loadChildren: './books/books.module#BooksModule' },
 
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'counter', component: CounterComponent },
