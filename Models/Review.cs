@@ -13,7 +13,7 @@ namespace BooksApp.Models
 
         public User AddedBy { get; set; }
 
-       // public Book Book { get; set; }
+    
 
 
     }

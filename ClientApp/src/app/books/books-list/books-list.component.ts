@@ -19,7 +19,7 @@ export class BooksListComponent implements OnInit {
         this.loadBooks();
     }
 
-    loadBooks() {
+    async loadBooks() {
         this.booksService.listBooks().subscribe(res => {
             this.books = res;
         });
