@@ -12,12 +12,12 @@
                     Text required!
                 </mat-error>
             </mat-form-field>
-            
+
             <mat-form-field>
                 <input matInput placeholder="BookId" formControlName="bookId" type="number">
 
                 <mat-error *ngIf="formGroup.get('bookId').touched && formGroup.get('bookId').errors && formGroup.get('bookId').errors.required">
-                    Text required!
+                    Book id required!
                 </mat-error>
             </mat-form-field>
 

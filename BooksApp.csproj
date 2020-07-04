@@ -9,10 +9,15 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Remove="ClientApp\node_modules\**" />
+	  <Compile Remove="ClientApp\src\app\reviews\**" />
 	  <Content Remove="ClientApp\node_modules\**" />
+	  <Content Remove="ClientApp\src\app\reviews\**" />
 	  <EmbeddedResource Remove="ClientApp\node_modules\**" />
+	  <EmbeddedResource Remove="ClientApp\src\app\reviews\**" />
 	  <None Remove="ClientApp\node_modules\**" />
+	  <None Remove="ClientApp\src\app\reviews\**" />
 	  <TypeScriptCompile Remove="ClientApp\node_modules\**" />
+	  <TypeScriptCompile Remove="ClientApp\src\app\reviews\**" />
 	</ItemGroup>
 	<ItemGroup>
 	  <TypeScriptCompile Remove="ClientApp\src\app\shared\angular-material.module.ts" />

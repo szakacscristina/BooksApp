@@ -22,4 +22,4 @@ import { ReviewsService } from './reviews.service';
     ],
     providers: [ReviewsService],
 })
-export class ReviewModule { }
+export class BooksModule { }

@@ -17,12 +17,12 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent},
+    { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent },
 
     { path: 'books', loadChildren: './books/books.module#BooksModule' },
 
-    { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsModule' },
+   // { path: 'reviews', loadChildren: './reviews/reviews.module#ReviewsModule' },
 
     { path: 'fetch-data/:bookId', loadChildren: './books/books.module#BooksModule' },
 
@@ -33,27 +33,27 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+    declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        CounterComponent,
+        FetchDataComponent,
         BookDetailsComponent,
         RegistrationComponent,
         LoginComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(routes),
-      BrowserAnimationsModule,
-      AngularMaterialModule,
-      CoreModule
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        HttpClientModule,
+        FormsModule,
+        RouterModule.forRoot(routes),
+        BrowserAnimationsModule,
+        AngularMaterialModule,
+        CoreModule
     ],
     exports: [AngularMaterialModule, CoreModule],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

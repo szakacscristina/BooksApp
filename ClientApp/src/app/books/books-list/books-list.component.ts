@@ -11,7 +11,7 @@ export class BooksListComponent implements OnInit {
 
     public displayedColumns: string[] = ['title', 'yearOfRelease', 'publisher', 'author', 'bookGenre', 'numberOfReviews', 'action'];
     public books: Book[];
-  
+
 
     constructor(private booksService: BooksService) { }
 

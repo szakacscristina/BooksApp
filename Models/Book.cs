@@ -23,6 +23,7 @@ namespace BooksApp.Models
         public User AddedBy { get; set; }
 
         public List<Review> Reviews { get; set; }
+    
     }
 }
 

@@ -2,17 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Book } from './books.models';
 import { ApplicationService } from '../core/services/application.service';
-//import { PaginatedMovies } from './paginatedMovies.models';
-import { PageEvent } from '@angular/material/paginator';
+
 
 
 @Injectable()
 export class BooksService {
-    listBooks() {
-        throw new Error("Method not implemented.");
-    }
-    filter: any;
-
     constructor(
         private http: HttpClient,
         private applicationService: ApplicationService) { }
@@ -21,14 +15,9 @@ export class BooksService {
         return this.http.get<Book>(`${this.applicationService.baseUrl}api/Books/${id}`);
     }
 
-    //listBooks(event?: PageEvent) {
-
-    //    let pageIndex = event ? event.pageIndex + "" : "0";
-    //    let itemsPerPage = event ? event.pageSize + "" : "25";
-    //    console.log(event);
-    //    let params = new HttpParams().set("page", pageIndex).set("itemsPerPage", itemsPerPage); //Create new HttpParams
-    //    return this.http.get<PaginatedMovies>(`${this.applicationService.baseUrl}api/Movies`, { params: params });
-    //}
+    listBooks() {
+        return this.http.get<Book[]>(`${this.applicationService.baseUrl}api/Books`);
+    }
 
     saveBook(book: Book) {
         return this.http.post(`${this.applicationService.baseUrl}api/Books`, book);

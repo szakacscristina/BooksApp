@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>\r\n    Add/Edit a book \r\n</p>\r\n\r\n<mat-card class=\"example-card\">\r\n    <form *ngIf=\"formGroup\" [formGroup]=\"formGroup\">\r\n        <div class=\"example-container\">\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Title\" formControlName=\"title\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('title').touched && formGroup.get('title').errors && formGroup.get('title').errors.required\">\r\n                    Title required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"YearOfRelease\" formControlName=\"yearOfRelease\" type=\"number\">\r\n                <mat-error *ngIf=\"formGroup.get('yearOfRelease').touched && formGroup.get('yearOfRelease').errors && formGroup.get('yearOfRelease').errors.required\">\r\n                    Year of release required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Publisher\" formControlName=\"publisher\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('publisher').touched && formGroup.get('publisher').errors && formGroup.get('publisher').errors.required\">\r\n                    Publisher required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Author\" formControlName=\"author\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('author').touched && formGroup.get('author').errors && formGroup.get('author').errors.required\">\r\n                    Author required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Book genre\" formControlName=\"bookGenre\" type=\"text\">\r\n                <mat-error *ngIf=\"formGroup.get('bookGenre').touched && formGroup.get('bookGenre').errors && formGroup.get('bookGenre').errors.required\">\r\n                    Book genre required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n        <div class=\"example-button-row\">\r\n            <button mat-raised-button color=\"primary\" (click)=\"save()\">Save</button>\r\n            <button mat-raised-button color=\"primary\" [routerLink]='routerLink'>Cancel</button>\r\n        </div>\r\n    </form>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>Add/Edit books</p>\r\n\r\n<mat-card class=\"example-card\">\r\n    <form *ngIf=\"formGroup\" [formGroup]=\"formGroup\">\r\n        <div class=\"example-container\">\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Title\" formControlName=\"title\" type=\"text\">\r\n\r\n                <mat-error *ngIf=\"formGroup.get('title').touched && formGroup.get('title').errors && formGroup.get('title').errors.required\">\r\n                    Title required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"YearOfRelease\" formControlName=\"yearOfRelease\" type=\"number\">\r\n\r\n                <mat-error *ngIf=\"formGroup.get('yearOfRelease').touched && formGroup.get('yearOfRelease').errors && formGroup.get('yearOfRelease').errors.required\">\r\n                    Year of release required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Publisher\" formControlName=\"publisher\" type=\"text\">\r\n\r\n                <mat-error *ngIf=\"formGroup.get('publisher').touched && formGroup.get('publisher').errors && formGroup.get('publisher').errors.required\">\r\n                    Publisher required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"Author\" formControlName=\"author\" type=\"text\">\r\n\r\n                <mat-error *ngIf=\"formGroup.get('author').touched && formGroup.get('author').errors && formGroup.get('author').errors.required\">\r\n                    Publisher required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"BookGenre\" formControlName=\"bookGenre\" type=\"text\">\r\n\r\n                <mat-error *ngIf=\"formGroup.get('bookGenre').touched && formGroup.get('bookGenre').errors && formGroup.get('bookGenre').errors.required\">\r\n                    Publisher required!\r\n                </mat-error>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"example-button-row\">\r\n            <button mat-raised-button color=\"primary\" (click)=\"save()\">Save</button>\r\n            <button mat-raised-button color=\"primary\" [routerLink]='routerLink'>Cancel</button>\r\n        </div>\r\n    </form>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Books</h1>\r\n\r\n<p>These are all the books!</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n\r\n<table class=\"table table-striped table-dark\" mat-table [dataSource]=\"books?.items\" *ngIf=\"books\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Title </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.title}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Year of release </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"publisher\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Publisher </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.publisher}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Duration Column -->\r\n    <ng-container matColumnDef=\"author\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Author </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.author}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Year Column -->\r\n    <ng-container matColumnDef=\"bookGenre\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Book Genre</th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.bookGenre}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Comments Column -->\r\n    <ng-container matColumnDef=\"numberOfReviews\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> No. of reviews </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.reviews}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Action Column -->\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let movie\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', book.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteBook(book)\">delete</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Details\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"detailsBook(book)\">details</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n<mat-progress-bar mode=\"indeterminate\" *ngIf=\"!books\"></mat-progress-bar>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1>Books</h1>\r\n\r\n<p>Many books in the list</p>\r\n\r\n<div class=\"example-button-row\">\r\n    <button mat-raised-button [routerLink]='[\"../edit\"]' color=\"primary\">Add</button>\r\n</div>\r\n\r\n<table mat-table [dataSource]=\"books?.items\" class=\"mat-elevation-z8\" *ngIf=\"books\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:21%\"> Title </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.title}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"yearOfRelease\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:23%\"> Year of release </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.yearOfRelease}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"publisher\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:23%\"> Publisher </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.publisher}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"author\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:23%\"> Author </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.author}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"bookGenre\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:23%\"> Book genre </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.bookGenre}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Symbol Column -->\r\n    <ng-container matColumnDef=\"numberOfReviews\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:23%\"> No. of reviews </th>\r\n        <td mat-cell *matCellDef=\"let book\"> {{book.numberOfReviews}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <!-- Action Column -->\r\n    <ng-container matColumnDef=\"action\">\r\n        <th mat-header-cell *matHeaderCellDef style=\"width:10%\"> Action </th>\r\n        <td mat-cell *matCellDef=\"let book\">\r\n            <button mat-icon-button matTooltip=\"Edit\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon\" [routerLink]=\"['../edit', book.id]\">edit</mat-icon>\r\n            </button>\r\n\r\n            <button mat-icon-button matTooltip=\"Delete\" [matTooltipPosition]=\"'after'\">\r\n                <mat-icon aria-label=\"Example icon-button with a heart icon \" (click)=\"deleteBook(book)\">delete</mat-icon>\r\n            </button>\r\n        </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n<mat-progress-bar mode=\"indeterminate\" *ngIf=\"!books\"></mat-progress-bar>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>books works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jvb2tzL2Jvb2tzLWVkaXQvYm9va3MtZWRpdC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".example-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n    .example-container > * {\r\n        width: 100%;\r\n    }\r\n\r\n    body {\r\n    background-image: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYm9va3MvYm9va3MtZWRpdC9ib29rcy1lZGl0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLFlBQVk7SUFDWixtQkFBbUI7QUFDdkI7O0lBRUk7UUFDSSxXQUFXO0lBQ2Y7O0lBR0o7SUFDSSxzQkFBc0I7QUFDMUIiLCJmaWxlIjoic3JjL2FwcC9ib29rcy9ib29rcy1lZGl0L2Jvb2tzLWVkaXQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIHBhZGRpbmc6IDVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbiAgICAuZXhhbXBsZS1jb250YWluZXIgPiAqIHtcclxuICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgIH1cclxuXHJcblxyXG5ib2R5IHtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IG5vbmU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -345,18 +345,15 @@ BooksComponent = __decorate([
 /*!***************************************!*\
   !*** ./src/app/books/books.models.ts ***!
   \***************************************/
-/*! exports provided: Book, BookGenre */
+/*! exports provided: BookGenre */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Book", function() { return Book; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookGenre", function() { return BookGenre; });
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-class Book {
-}
 var BookGenre;
 (function (BookGenre) {
     BookGenre[BookGenre["Romance"] = 0] = "Romance";
@@ -456,19 +453,12 @@ let BooksService = class BooksService {
         this.http = http;
         this.applicationService = applicationService;
     }
-    listBooks() {
-        throw new Error("Method not implemented.");
-    }
     getBook(id) {
         return this.http.get(`${this.applicationService.baseUrl}api/Books/${id}`);
     }
-    //listBooks(event?: PageEvent) {
-    //    let pageIndex = event ? event.pageIndex + "" : "0";
-    //    let itemsPerPage = event ? event.pageSize + "" : "25";
-    //    console.log(event);
-    //    let params = new HttpParams().set("page", pageIndex).set("itemsPerPage", itemsPerPage); //Create new HttpParams
-    //    return this.http.get<PaginatedMovies>(`${this.applicationService.baseUrl}api/Movies`, { params: params });
-    //}
+    listBooks() {
+        return this.http.get(`${this.applicationService.baseUrl}api/Books`);
+    }
     saveBook(book) {
         return this.http.post(`${this.applicationService.baseUrl}api/Books`, book);
     }

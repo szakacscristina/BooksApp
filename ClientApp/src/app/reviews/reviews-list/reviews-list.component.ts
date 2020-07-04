@@ -9,9 +9,9 @@ import { ReviewsService } from '../reviews.service';
 })
 export class ReviewsListComponent implements OnInit {
 
-
     public displayedColumns: string[] = ['text', 'bookId', 'action'];
     public reviews: Review[];
+
 
     constructor(private reviewsService: ReviewsService) { }
 

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Reviews } from './review.models';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Review } from './reviews.models';
 import { ApplicationService } from '../core/services/application.service';
+
 
 
 @Injectable()
 export class ReviewsService {
-
     constructor(
         private http: HttpClient,
         private applicationService: ApplicationService) { }
@@ -19,8 +19,8 @@ export class ReviewsService {
         return this.http.get<Review[]>(`${this.applicationService.baseUrl}api/Reviews`);
     }
 
-    saveReviews(review: Review) {
-        return this.http.post(`${this.applicationService.baseUrl}api/Reviews`, review);
+    saveReview(review: Review) {
+        return this.http.post(`${this.applicationService.baseUrl}api/Review`, review);
 
     }
 
@@ -32,3 +32,4 @@ export class ReviewsService {
         return this.http.delete<any>(`${this.applicationService.baseUrl}api/Reviews/${id}`);
     }
 }
+

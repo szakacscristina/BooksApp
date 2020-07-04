@@ -1,12 +1,12 @@
 <h1>Books</h1>
 
-<p>These are all the books!</p>
+<p>Many books in the list</p>
 
 <div class="example-button-row">
     <button mat-raised-button [routerLink]='["../edit"]' color="primary">Add</button>
 </div>
 
-<table class="table table-striped table-dark" mat-table [dataSource]="books?.items" *ngIf="books">
+<table mat-table [dataSource]="books?.items" class="mat-elevation-z8" *ngIf="books">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -18,48 +18,45 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="yearOfRelease">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> Year of release </th>
+        <th mat-header-cell *matHeaderCellDef style="width:23%"> Year of release </th>
         <td mat-cell *matCellDef="let book"> {{book.yearOfRelease}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="publisher">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> Publisher </th>
+        <th mat-header-cell *matHeaderCellDef style="width:23%"> Publisher </th>
         <td mat-cell *matCellDef="let book"> {{book.publisher}} </td>
     </ng-container>
 
-    <!-- Duration Column -->
+    <!-- Weight Column -->
     <ng-container matColumnDef="author">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> Author </th>
+        <th mat-header-cell *matHeaderCellDef style="width:23%"> Author </th>
         <td mat-cell *matCellDef="let book"> {{book.author}} </td>
     </ng-container>
 
-    <!-- Year Column -->
+    <!-- Weight Column -->
     <ng-container matColumnDef="bookGenre">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> Book Genre</th>
+        <th mat-header-cell *matHeaderCellDef style="width:23%"> Book genre </th>
         <td mat-cell *matCellDef="let book"> {{book.bookGenre}} </td>
     </ng-container>
 
-    <!-- Comments Column -->
+    <!-- Symbol Column -->
     <ng-container matColumnDef="numberOfReviews">
-        <th mat-header-cell *matHeaderCellDef style="width:21%"> No. of reviews </th>
-        <td mat-cell *matCellDef="let book"> {{book.reviews}} </td>
+        <th mat-header-cell *matHeaderCellDef style="width:23%"> No. of reviews </th>
+        <td mat-cell *matCellDef="let book"> {{book.numberOfReviews}} </td>
     </ng-container>
+
 
     <!-- Action Column -->
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef style="width:10%"> Action </th>
-        <td mat-cell *matCellDef="let movie">
+        <td mat-cell *matCellDef="let book">
             <button mat-icon-button matTooltip="Edit" [matTooltipPosition]="'after'">
                 <mat-icon aria-label="Example icon-button with a heart icon" [routerLink]="['../edit', book.id]">edit</mat-icon>
             </button>
 
             <button mat-icon-button matTooltip="Delete" [matTooltipPosition]="'after'">
                 <mat-icon aria-label="Example icon-button with a heart icon " (click)="deleteBook(book)">delete</mat-icon>
-            </button>
-
-            <button mat-icon-button matTooltip="Details" [matTooltipPosition]="'after'">
-                <mat-icon aria-label="Example icon-button with a heart icon " (click)="detailsBook(book)">details</mat-icon>
             </button>
         </td>
     </ng-container>
@@ -68,3 +65,15 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <mat-progress-bar mode="indeterminate" *ngIf="!books"></mat-progress-bar>
+
+
+
+
+
+
+
+
+
+
+
+

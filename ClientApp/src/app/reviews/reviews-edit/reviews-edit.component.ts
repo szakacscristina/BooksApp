@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ReviewsService } from '../reviews.service';
 import { Review } from '../reviews.models';
-import { REPLCommand } from 'repl';
 
 @Component({
     selector: 'app-reviews-edit',
@@ -21,7 +20,6 @@ export class ReviewsEditComponent implements OnInit {
     public formGroup: FormGroup;
 
     constructor(
-
         private router: Router,
         private route: ActivatedRoute,
         private reviewsService: ReviewsService,
@@ -51,7 +49,7 @@ export class ReviewsEditComponent implements OnInit {
 
         if (this.formGroup.valid) {
             let review = this.formGroup.value as Review;
-          
+
 
             if (this.isEdit) {
                 review.id = this.reviewID;
@@ -61,7 +59,7 @@ export class ReviewsEditComponent implements OnInit {
                 });
             } else {
 
-                this.reviewsService.saveReviews(review).subscribe(res => {
+                this.reviewsService.saveReview(review).subscribe(res => {
                     this.router.navigate(['/reviews']);
                 });
             }
